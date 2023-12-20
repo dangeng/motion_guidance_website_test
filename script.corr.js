@@ -26,10 +26,26 @@ function updateCircle(event, canvas_tgt, directions) {
 
     // Draw circle
     clearCanvas(thisCanvas);
-    drawCircle(thisCanvas, 15, 'red', mouseX, mouseY);
+    drawCircle(thisCanvas, 15, 'blue', mouseX, mouseY);
 
+    // Draw corresponding circle on other canvas
     clearCanvas(canvas_tgt);
-    drawCircle(canvas_tgt, 15, 'red', mouseX + arrowSize[0], mouseY + arrowSize[1]);
+    drawCircle(canvas_tgt, 15, 'blue', mouseX + arrowSize[0], mouseY + arrowSize[1]);
+
+    // Also draw arrow on source canvas
+    // If arrow is size 0, don't draw it
+    if (arrowSize[0] === 0 && arrowSize[1] === 0) {
+    } else {
+        // Draw a new arrow
+        const arrowX = mouseX + arrowSize[0];
+        const arrowY = mouseY + arrowSize[1];
+        drawArrow(
+            thisCanvas.getContext("2d"), 
+            mouseX, mouseY, 
+            arrowX, arrowY, 
+            8, 'red'
+        );
+    }
 }
 
 /*
