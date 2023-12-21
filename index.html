@@ -1,98 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Arrow Follows Mouse</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Guidance</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Maison+Mono" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
 </head>
+
 <body>
-    <h1>Flow Viz</h1>
-    <p>Mouse over (or tap) images to see the flow.</p>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Motion Guidance: Diffusion-Based Image Editing with Differentiable Motion Estimators</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://dangeng.github.io" target="_blank">Daniel Geng</a>,</span>
+              <span class="author-block">
+                <a href="https://andrewowens.com" target="_blank">Andrew Owens</a></span>
+            </div>
 
-    <div class="wrapper">
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/cat.v4.tilt30/flow.png" class="canvasBGImage">
-                    <canvas class="flowViz" width="512" height="512" data-json-path="./assets/cat.v4.tilt30/flow.json"></canvas>
-                </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Michigan</span>
             </div>
-        </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/cat.v4.tilt30/src.png" class="canvasBGImage">
-                    <canvas class="corrViz catV4 src" width="512" height="512" data-json-path="./assets/cat.v4.tilt30/flow.json"></canvas>
-                </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
             </div>
+          </div>
         </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/cat.v4.tilt30/gen.png" class="canvasBGImage">
-                    <canvas class="corrViz catV4 gen" width="512" height="512"></canvas>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="wrapper">
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/topiary.v1.heavyFatBG/flow.png" class="canvasBGImage">
-                    <canvas class="flowViz" width="512" height="512" data-json-path="./assets/topiary.v1.heavyFatBG/flow.json"></canvas>
-                </div>
+  <section class="section teaser">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered">
+        <p class="prompt">"a photo of a cat"</p>
+      </div>
+      <div class="flex">
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/cat.v4.tilt30/flow.png" class="canvasBGImage">
+              <canvas class="flowViz" width="512" height="512"
+                data-json-path="./static/examples/cat.v4.tilt30/flow.json"></canvas>
             </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Target Flow</b> (Hover over me)</p>
+          </div>
         </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/topiary.v1.heavyFatBG/src.png" class="canvasBGImage">
-                    <canvas class="corrViz topiaryV1 src" width="512" height="512" data-json-path="./assets/topiary.v1.heavyFatBG/flow.json"></canvas>
-                </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/cat.v4.tilt30/src.png" class="canvasBGImage">
+              <canvas class="corrViz catV4 src" width="512" height="512"
+                data-json-path="./static/examples/cat.v4.tilt30/flow.json"></canvas>
             </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Source Image</b> (Hover over me)</p>
+          </div>
         </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/topiary.v1.heavyFatBG/gen.png" class="canvasBGImage">
-                    <canvas class="corrViz topiaryV1 gen" width="512" height="512"></canvas>
-                </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/cat.v4.tilt30/gen.png" class="canvasBGImage">
+              <canvas class="corrViz catV4 gen" width="512" height="512"></canvas>
             </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Motion Edited</b></p>
+          </div>
         </div>
+      </div>
     </div>
+  </section>
 
-    <div class="wrapper">
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/apple.v5.right150/flow.png" class="canvasBGImage">
-                    <canvas class="flowViz" width="512" height="512" data-json-path="./assets/apple.v5.right150/flow.json"></canvas>
-                </div>
-            </div>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-two-thirds">
+          <p>
+            We present <b>Motion Guidance</b>, a method to achieve
+            <em>motion-based</em> editing. Given an image to edit
+            and a flow field, indicating where each pixel should go, we produce a new image with the desired motion. See below for examples.
+          </p>
         </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/apple.v5.right150/src.png" class="canvasBGImage">
-                    <canvas class="corrViz appleV5 src" width="512" height="512" data-json-path="./assets/apple.v5.right150/flow.json"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="outsideWrapper">
-                <div class="insideWrapper">
-                    <img src="assets/apple.v5.right150/gen.png" class="canvasBGImage">
-                    <canvas class="corrViz appleV5 gen" width="512" height="512"></canvas>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </section>
 
 
-    <script src="script.js"></script>
-    <script src="script.corr.js"></script>
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered content">
+        <h2 class="title is-3">Examples</h2>
+      </div>
+
+      <!-- Topiary -->
+      <div class="has-text-centered">
+        <p class="prompt">"a photo of a topiary"</p>
+      </div>
+      <div class="flex">
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/topiary.v1.heavyFatBG/flow.png" class="canvasBGImage">
+              <canvas class="flowViz" width="512" height="512"
+                data-json-path="./static/examples/topiary.v1.heavyFatBG/flow.json"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Target Flow</b> (Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/topiary.v1.heavyFatBG/src.png" class="canvasBGImage">
+              <canvas class="corrViz topiaryV1 src" width="512" height="512"
+                data-json-path="./static/examples/topiary.v1.heavyFatBG/flow.json"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Source Image</b> (Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/topiary.v1.heavyFatBG/gen.png" class="canvasBGImage">
+              <canvas class="corrViz topiaryV1 gen" width="512" height="512"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Motion Edited</b></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- River -->
+      <div class="has-text-centered">
+        <p class="prompt">"an aerial photo of a river"</p>
+      </div>
+      <div class="flex">
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/river.v4.left200/flow.png" class="canvasBGImage">
+              <canvas class="flowViz" width="512" height="512"
+                data-json-path="./static/examples/river.v4.left200/flow.json"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Target Flow</b> (Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/river.v4.left200/src.png" class="canvasBGImage">
+              <canvas class="corrViz riverV4 src" width="512" height="512"
+                data-json-path="./static/examples/river.v4.left200/flow.json"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Source Image</b> (Hover over me)</p>
+          </div>
+        </div>
+        <div class="flexWrapper">
+          <div class="outsideWrapper">
+            <div class="insideWrapper">
+              <img src="static/examples/river.v4.left200/gen.png" class="canvasBGImage">
+              <canvas class="corrViz riverV4 gen" width="512" height="512"></canvas>
+            </div>
+          </div>
+          <div class="has-text-centered">
+            <p><b>Motion Edited</b></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  </section>
+
+
+
+  <script src="./static/js/flow.js"></script>
+  <script src="./static/js/corr.js"></script>
 </body>
+
 </html>

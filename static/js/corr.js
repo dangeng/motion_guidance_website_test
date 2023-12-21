@@ -16,10 +16,14 @@ function updateCircle(event, canvas_tgt, directions) {
     // Get canvas
     var thisCanvas = event.target;
 
+    // Get current size of the canvas
+    const canvasWidth = thisCanvas.width;
+    const canvasHeight = thisCanvas.height;
+
     // Get mouse location, relative to canvas
     var rect = thisCanvas.getBoundingClientRect();
-    const mouseX = Math.round(event.clientX - rect.left);
-    const mouseY = Math.round(event.clientY - rect.top);
+    const mouseX = Math.round((event.clientX - rect.left) * (canvasWidth / rect.width));
+    const mouseY = Math.round((event.clientY - rect.top) * (canvasHeight / rect.height));
 
     // Get size of arrow
     const arrowSize = directions[mouseY][mouseX];
