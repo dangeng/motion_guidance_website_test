@@ -294,8 +294,7 @@ canvas {
   height: 100%;
 }
 
-.corrViz,
-.flowViz {
+.viz {
   width: 100%;
   height: 100%;
 }
