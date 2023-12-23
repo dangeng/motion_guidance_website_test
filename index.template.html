@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motion Guidance</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro|Maison+Mono" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Motion Guidance: Diffusion-Based Image Editing with Differentiable Motion Estimators</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://dangeng.github.io" target="_blank">Daniel Geng</a>,</span>
+              <span class="author-block">
+                <a href="https://andrewowens.com" target="_blank">Andrew Owens</a></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of Michigan</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/pdf/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2011.12948" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <span class="link-block">
+                  <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Data</span>
+                  </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section teaser">
+    <div class="container is-max-desktop">
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-justified">
+        <div class="column is-two-thirds">
+          <p>
+            We present <b>Motion Guidance</b>, a method to achieve
+            <em>motion-based</em> editing. Given an image to edit
+            and a flow field, indicating where each pixel should go, we produce a new image with the desired motion. See below for examples.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered content">
+        <h2 class="title is-3">Examples</h2>
+      </div>
+
+      <!-- Cat -->
+      {{cat.v4.tilt30|cat|"a photo of a cat"}}
+
+      <!-- Topiary -->
+      {{topiary.v1.heavyFatBG|topiaryV1|"a photo of a topiary"}}
+
+      <!-- River -->
+      {{river.v4.left200|riverV4|"an aerial photo of a river"}}
+
+      <!-- Apple -->
+      {{apple.v5.right150|appleV5|"an apple on a wooden table"}}
+
+      <!-- House -->
+      {{house.v12.up50|houseV12|"a photo of a modern house"}}
+
+      <!-- Laptop -->
+      {{laptop.v5.close|laptopV5|"a photo of a laptop"}}
+
+      <!-- Lion v3 -->
+      {{lion.v3.left50|lionV3|"a photo of a lion"}}
+
+      <!-- Lion v4 -->
+      {{lion.v4.left100|lionV4|"a photo of a lion"}}
+
+      <!-- Cat Transfer -->
+      {{real.cat.2.transfer2|catTransfer|[real image]}}
+
+      <!-- Panda Transfer -->
+      {{real.panda.transfer2|pandaTransfer|[real image]}}
+
+      <!-- Pug Transfer -->
+      {{real.pug.transfer2|pugTransfer|[real image]}}
+
+      <!-- Real Cat Rotate -->
+      {{real.cat.uninvert.rotate|realCat|[real image]}}
+
+      <!-- Waterfall -->
+      {{real.waterfall.uninvert.curveLeft|waterfall|[real image]}}
+
+      <!-- Window 1 -->
+      {{real.windows1.uninvert.moveWindow1234|window1|[real image]}}
+
+      <!-- Window 2 -->
+      {{real.windows2.uninvert.align2|window2|[real image]}}
+
+      <!-- Woman 1 -->
+      {{real.woman1.uninvert.growHair|woman1|[real image]}}
+
+      <!-- Woman 2 -->
+      {{real.woman2.uninvert.growHair|woman2|[real image]}}
+
+      <!-- Robot -->
+      {{robot.v2.arm_-30deg|robot|"a photo of a cute humanoid robot on a solid background"}}
+
+      <!-- Sunflower -->
+      {{sunflower.painting.v0.enlarge|sunflower|"a painting of a sunflower"}}
+
+      <!-- Teapot Down -->
+      {{teapot.v8.down150|teapotDown|"a teapot floating in water"}}
+
+      <!-- Teapot Larger -->
+      {{teapot.v8.larger|teapotLarger|"a teapot floating in water"}}
+
+      <!-- Teapot Right -->
+      {{teapot.v8.right150|teapotRight|"a teapot floating in water"}}
+
+      <!-- Teapot Smaller -->
+      {{teapot.v8.smaller|teapotSmaller|"a teapot floating in water"}}
+
+      <!-- Teapot StretchX-->
+      {{teapot.v8.stretchx|teapotStretchX|"a teapot floating in water"}}
+
+      <!-- Teapot StretchY -->
+      {{teapot.v8.stretchy|teapotStretchY|"a teapot floating in water"}}
+
+      <!-- Teapot Up -->
+      {{teapot.v8.up150|teapotUp|"a teapot floating in water"}}
+
+      <!-- Tree Enlarge -->
+      {{tree.painting.v7.enlarge|treeEnlarge|"a painting of a lone tree"}}
+
+      <!-- Tree Skinny -->
+      {{tree.painting.v14.skinny2|treeSkinny|"a painting of a lone tree"}}
+
+
+    </div>
+  </div>
+
+  </section>
+
+
+
+  <!--<script src="./static/js/flow.js"></script>-->
+  <script src="./static/js/corr.js"></script>
+</body>
+
+</html>
