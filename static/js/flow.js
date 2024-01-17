@@ -77,11 +77,6 @@ function updateArrowPosition(event, arrowDirections) {
     const mouseX = Math.round((event.clientX - rect.left) * (canvasWidth / rect.width));
     const mouseY = Math.round((event.clientY - rect.top) * (canvasHeight / rect.height));
 
-    // Get mouse location, relative to canvas
-    /*var rect = thisCanvas.getBoundingClientRect();
-    const mouseX = Math.round(event.clientX - rect.left);
-    const mouseY = Math.round(event.clientY - rect.top);*/
-
     // Get size of arrow
     const arrowSize = arrowDirections[mouseY][mouseX];
 
@@ -152,5 +147,5 @@ function initializeCanvases() {
 }
 
 // Initialize all canvases on DOM loaded
-document.addEventListener("DOMContentLoaded", initializeCanvases);
+//document.addEventListener("DOMContentLoaded", initializeCanvases);
 

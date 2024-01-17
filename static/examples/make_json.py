@@ -7,7 +7,8 @@ from pathlib import Path
 fnames = os.listdir()
 flow_paths = [Path(fname) / 'flow.pth' for fname in fnames]
 
-for flow_path in flow_paths:
+#for flow_path in flow_paths:
+for flow_path in [Path('teapot.v8.up150/flow.pth')]:
     if flow_path.exists():
         print(f'Processing: {flow_path}')
         flow = torch.load(flow_path)

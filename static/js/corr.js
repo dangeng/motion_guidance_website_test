@@ -142,10 +142,10 @@ function draw(event, canvases, flow) {
     clearCanvas(canvases['gen']);
 
     // Draw circle on 'src' canvas
-    drawCircle(canvases['src'], 15, 'blue', mouseX, mouseY);
+    drawCircle(canvases['src'], 15, 'pink', mouseX, mouseY);
 
     // Draw corresponding circle on 'gen' canvas
-    drawCircle(canvases['gen'], 15, 'blue', arrowX, arrowY);
+    drawCircle(canvases['gen'], 15, 'pink', arrowX, arrowY);
 
     // Draw arrows on 'src' and 'flow' canvases
     // only if arrow is non-zero
@@ -154,7 +154,7 @@ function draw(event, canvases, flow) {
             canvases['src'], 
             mouseX, mouseY, 
             arrowX, arrowY, 
-            8, 'red'
+            8, 'cyan'
         );
         drawArrow(
             canvases['flow'], 

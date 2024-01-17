@@ -1,7 +1,7 @@
 import re
 
 # Visualization component (3 canvases and images in a row)
-component = '''<div class="has-text-centered">
+component = '''<div class="has-text-centered" {{ id }}>
   <p class="prompt">{{ prompt }}</p>
 </div>
 <div class="flex">
@@ -42,10 +42,13 @@ component = '''<div class="has-text-centered">
 </div>'''
 
 def makeComponent(match):
-    spaces, dirName, clsName, prompt = match.groups()
+    spaces, dirName, clsName, prompt, id = match.groups()
+    if id != '':
+        id = f'id="{id}"'
     out = component.replace('{{ dirName }}', dirName) \
                    .replace('{{ clsName }}', clsName) \
-                   .replace('{{ prompt }}', prompt)
+                   .replace('{{ prompt }}', prompt) \
+                   .replace('{{ id }}', id)
     return '\n'.join([f'{spaces}{line}' for line in out.splitlines()])
 
 
@@ -55,7 +58,7 @@ with open('index.template.html', 'r+') as f:
 template = ''.join(lines)
 
 # Replace tags with actual html
-regex_pattern = r'( *){{(.*)\|(.*)\|(.*)}}'
+regex_pattern = r'( *){{(.*)\|(.*)\|(.*)\|(.*)}}'
 result = re.sub(regex_pattern, makeComponent, template)
 
 # Save to index.html
